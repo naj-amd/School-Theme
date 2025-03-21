@@ -43,3 +43,8 @@ function dream_code_custom_image_sizes( $size_names ) {
     return array_merge( $size_names, $new_sizes);
 }
 add_filter( 'image_size_names_choose', 'dream_code_custom_image_sizes' );
+
+/**
+* Custom Post Types & Custom Taxonomies
+*/
+require get_template_directory() . '/inc/post-type-taxonomies.php';

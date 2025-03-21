@@ -1,0 +1,27 @@
+<!-- wp:template-part {"slug":"header","tagName":"header"} /-->
+
+<!-- wp:group {"tagName":"main","metadata":{"name":"main"},"layout":{"type":"constrained"}} -->
+<main class="wp-block-group"><!-- wp:heading {"textAlign":"center","level":1,"style":{"spacing":{"padding":{"bottom":"0"},"margin":{"bottom":"var:preset|spacing|60"}},"typography":{"fontStyle":"normal","fontWeight":"700"}},"fontFamily":"pt-serif"} -->
+<h1 class="wp-block-heading has-text-align-center has-pt-serif-font-family" style="margin-bottom:var(--wp--preset--spacing--60);padding-bottom:0;font-style:normal;font-weight:700">Students</h1>
+<!-- /wp:heading -->
+
+<!-- wp:query {"queryId":3,"query":{"perPage":100,"pages":0,"offset":0,"postType":"fwd-student","order":"asc","orderBy":"title","author":"","search":"","exclude":[],"sticky":"","inherit":false,"parents":[],"format":[]},"layout":{"type":"constrained"}} -->
+<div class="wp-block-query"><!-- wp:post-template {"style":{"spacing":{"blockGap":"var:preset|spacing|50"}},"layout":{"type":"grid","columnCount":3,"minimumColumnWidth":null}} -->
+<!-- wp:group -->
+<div class="wp-block-group"><!-- wp:post-title {"level":3,"isLink":true,"style":{"typography":{"fontStyle":"normal","fontWeight":"400"},"spacing":{"padding":{"top":"0","bottom":"0"},"margin":{"top":"var:preset|spacing|30"}}},"fontFamily":"pt-serif"} /-->
+
+<!-- wp:post-featured-image {"isLink":true,"aspectRatio":"2/3","style":{"spacing":{"padding":{"top":"0","bottom":"0"},"margin":{"top":"var:preset|spacing|20","bottom":"0","right":"0"}}}} /-->
+
+<!-- wp:post-terms {"term":"category","prefix":"Categories: ","style":{"typography":{"fontStyle":"normal","fontWeight":"400"},"spacing":{"margin":{"top":"0","bottom":"0"}}},"fontSize":"medium","fontFamily":"pt-serif"} /--></div>
+<!-- /wp:group -->
+<!-- /wp:post-template --></div>
+<!-- /wp:query -->
+
+<!-- wp:buttons {"style":{"spacing":{"margin":{"top":"var:preset|spacing|80","bottom":"var:preset|spacing|50"}}},"layout":{"type":"flex","justifyContent":"center"}} -->
+<div class="wp-block-buttons" style="margin-top:var(--wp--preset--spacing--80);margin-bottom:var(--wp--preset--spacing--50)"><!-- wp:button -->
+<div class="wp-block-button"><a class="wp-block-button__link wp-element-button">Application form</a></div>
+<!-- /wp:button --></div>
+<!-- /wp:buttons --></main>
+<!-- /wp:group -->
+
+<!-- wp:template-part {"slug":"footer","tagName":"footer"} /-->
