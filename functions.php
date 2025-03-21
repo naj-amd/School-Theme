@@ -44,6 +44,15 @@ function dream_code_custom_image_sizes( $size_names ) {
 }
 add_filter( 'image_size_names_choose', 'dream_code_custom_image_sizes' );
 
+//Changing the placeholder of title in student post type.
+function school_demo_change_title_placeholder($title, $post){
+    if($post->post_type =="fwd-student"){
+        return "Add student name";
+    }
+    return $title;
+}
+add_filter('enter_title_here', 'school_demo_change_title_placeholder', 10, 2);
+
 /**
 * Custom Post Types & Custom Taxonomies
 */

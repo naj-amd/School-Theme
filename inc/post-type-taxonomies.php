@@ -53,6 +53,17 @@ function school_demo_register_custom_post_types() {
         'menu_position'      => 5,
         'menu_icon'          => 'dashicons-welcome-learn-more',
         'supports'           => array( 'title', 'editor', 'thumbnail' ), //thumbnail is for featured images
+        'template'           => array(
+            array( 'core/paragraph', array(
+                'placeholder' => 'Write a short biography here...'
+            ) ),
+            array('core/button', array(
+                'text'=> 'See My Portfolio',
+                'url' => '#',
+                'align' => 'center'
+            ))
+            ),
+        'template_lock'      => 'all'  //preventing user from moving/ removing theme.
     );
     register_post_type( 'fwd-student', $args );
 }
