@@ -20,36 +20,6 @@ function dream_code_enqueues()
 }
 add_action('wp_enqueue_scripts', 'dream_code_enqueues');
 
-function dream_code_setup()
-{
-    // Loads style.css on the back-end editor
-    add_editor_style(get_stylesheet_uri());
-
-    // New image sizes
-    // Crop images to 400px by 600px
-    add_image_size('400x600', 400, 600, true);
-
-    // Crop images to 800px by 1200px
-    add_image_size('800x1200', 800, 1200, true);
-}
-add_action('after_setup_theme', 'dream_code_setup');
-
-// Add new images to WordPress admin
-function dream_code_custom_image_sizes($size_names)
-{
-    $new_sizes = array(
-        '400x600'  => __('400x600', 'school-site'),
-        '800x1200' => __('800x1200', 'school-site'),
-    );
-    return array_merge($size_names, $new_sizes);
-}
-add_filter('image_size_names_choose', 'dream_code_custom_image_sizes');
-
-/**
- * Custom Post Types & Custom Taxonomies
- */
-require get_template_directory() . '/inc/post-type-taxonomies.php';
-
 function enqueue_lightgallery_scripts()
 {
     if (is_page(52)) {
@@ -91,3 +61,42 @@ function enqueue_lightgallery_scripts()
     }
 }
 add_action('wp_enqueue_scripts', 'enqueue_lightgallery_scripts');
+
+function dream_code_setup()
+{
+    // Loads style.css on the back-end editor
+    add_editor_style(get_stylesheet_uri());
+
+    // New image sizes
+    // Crop images to 400px by 600px
+    add_image_size('400x600', 400, 600, true);
+
+    // Crop images to 800px by 1200px
+    add_image_size('800x1200', 800, 1200, true);
+}
+add_action('after_setup_theme', 'dream_code_setup');
+
+// Add new images to WordPress admin
+function dream_code_custom_image_sizes($size_names)
+{
+    $new_sizes = array(
+        '400x600'  => __('400x600', 'school-site'),
+        '800x1200' => __('800x1200', 'school-site'),
+    );
+    return array_merge($size_names, $new_sizes);
+}
+add_filter('image_size_names_choose', 'dream_code_custom_image_sizes');
+
+//Changing the placeholder of title in student post type.
+function school_demo_change_title_placeholder($title, $post){
+    if($post->post_type =="fwd-student"){
+        return "Add student name";
+    }
+    return $title;
+}
+add_filter('enter_title_here', 'school_demo_change_title_placeholder', 10, 2);
+
+/**
+* Custom Post Types & Custom Taxonomies
+*/
+require get_template_directory() . '/inc/post-type-taxonomies.php';
