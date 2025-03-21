@@ -35,11 +35,59 @@ function dream_code_setup()
 add_action('after_setup_theme', 'dream_code_setup');
 
 // Add new images to WordPress admin
-function dream_code_custom_image_sizes( $size_names ) {
-    $new_sizes = array (
-        '400x600'  => __( '400x600', 'school-site' ),
-        '800x1200' => __( '800x1200', 'school-site' ),
+function dream_code_custom_image_sizes($size_names)
+{
+    $new_sizes = array(
+        '400x600'  => __('400x600', 'school-site'),
+        '800x1200' => __('800x1200', 'school-site'),
     );
-    return array_merge( $size_names, $new_sizes);
+    return array_merge($size_names, $new_sizes);
 }
-add_filter( 'image_size_names_choose', 'dream_code_custom_image_sizes' );
+add_filter('image_size_names_choose', 'dream_code_custom_image_sizes');
+
+/**
+ * Custom Post Types & Custom Taxonomies
+ */
+require get_template_directory() . '/inc/post-type-taxonomies.php';
+
+function enqueue_lightgallery_scripts()
+{
+    if (is_page(52)) {
+        // Enqueue lightGallery CSS
+        wp_enqueue_style(
+            'lightgallery-css',
+            get_theme_file_uri('assets/css/lightgallery-bundle.min.css'),
+            array(),
+            wp_get_theme()->get('Version'),
+            'all'
+        );
+
+        // Enqueue lightGallery JS
+        wp_enqueue_script(
+            'lightgallery-js',
+            get_theme_file_uri('assets/js/lightgallery.min.js'),
+            array(),
+            wp_get_theme()->get('Version'),
+            array('strategy' => 'defer')
+        );
+
+        // Enqueue lightGallery thumbnail plugin
+        wp_enqueue_script(
+            'lg-thumbnail-js',
+            get_theme_file_uri('assets/js/lg-thumbnail.min.js'),
+            array('lightgallery-js'),
+            wp_get_theme()->get('Version'),
+            array('strategy' => 'defer')
+        );
+
+        // Enqueue lightGallery settings file
+        wp_enqueue_script(
+            'lightgallery-settings',
+            get_theme_file_uri('assets/js/lightgallery-settings.js'),
+            array('lightgallery-js'),
+            wp_get_theme()->get('Version'),
+            array('strategy' => 'defer')
+        );
+    }
+}
+add_action('wp_enqueue_scripts', 'enqueue_lightgallery_scripts');
