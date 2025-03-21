@@ -69,9 +69,50 @@ function school_demo_register_custom_post_types() {
 }
 add_action( 'init', 'school_demo_register_custom_post_types' );
 
+//We can have the register_taxonomy inside the same function as the custom post type 
+// or in a separate function. For organization purposes, we will create a separate function.
+function school_demo_register_taxonomies() {
+    // Add Work Category taxonomy
+    $labels = array(
+        'name'                  => _x( 'Student Categories', 'taxonomy general name', 'School-Theme' ),
+        'singular_name'         => _x( 'Student Category', 'taxonomy singular name', 'School-Theme' ),
+        'search_items'          => __( 'Search Student Categories', 'School-Theme' ),
+        'all_items'             => __( 'All Student Category', 'School-Theme' ),
+        'parent_item'           => __( 'Parent Student Category', 'School-Theme' ),
+        'parent_item_colon'     => __( 'Parent Student Category:', 'School-Theme' ),
+        'edit_item'             => __( 'Edit Student Category', 'School-Theme' ),
+        'view_item'             => __( 'View Student Category', 'School-Theme' ),
+        'update_item'           => __( 'Update Student Category', 'School-Theme' ),
+        'add_new_item'          => __( 'Add New Student Category', 'School-Theme' ),
+        'new_item_name'         => __( 'New Student Category Name', 'School-Theme' ),
+        'template_name'         => __( 'Student Category Archives', 'School-Theme' ),
+        'menu_name'             => __( 'Student Category', 'School-Theme' ),
+        'not_found'             => __( 'No student categories found.', 'School-Theme' ),
+        'no_terms'              => __( 'No student categories', 'School-Theme' ),
+        'items_list_navigation' => __( 'Student Categories list navigation', 'School-Theme' ),
+        'items_list'            => __( 'Student Categories list', 'School-Theme' ),
+        'item_link'             => __( 'Student Category Link', 'School-Theme' ),
+        'item_link_description' => __( 'A link to a student category.', 'School-Theme' ),
+    );
+    $args = array(
+        'hierarchical'      => true,
+        'labels'            => $labels,
+        'show_ui'           => true,
+        'show_in_menu'      => true,
+        'show_in_nav_menu'  => true,
+        'show_in_rest'      => true,
+        'show_admin_column' => true,
+        'query_var'         => true,
+        'rewrite'           => array( 'slug' => 'student-categories' ),
+    );
+    register_taxonomy( 'fwd-student-category', array( 'fwd-student' ), $args );
+}
+add_action( 'init', 'school_demo_register_taxonomies' );
+
 // Adding flush_rewrite_rules() function to make sure that the custom post type is registered properly withoutneed to fluch amnualy.
 function mindset_rewrite_flush() {
-    mindset_register_custom_post_types();
+    school_demo_register_custom_post_types();
+    school_demo_register_taxonomies();
     flush_rewrite_rules();
 }
 add_action( 'after_switch_theme', 'mindset_rewrite_flush' );
