@@ -117,7 +117,7 @@ function school_demo_register_custom_post_types() {
         'query_var'          => true,
         'rewrite'            => array( 'slug' => 'staff' ),
         'capability_type'    => 'post',
-        'has_archive'        => true,
+        'has_archive'        => false,
         'hierarchical'       => false,
         'menu_position'      => 5,
         'menu_icon'          => 'dashicons-groups',
@@ -173,6 +173,49 @@ function school_demo_register_taxonomies() {
         'rewrite'           => array( 'slug' => 'student-categories' ),
     );
     register_taxonomy( 'fwd-student-category', array( 'fwd-student' ), $args );
+
+    // Add Staff Category taxonomy
+    $labels = array(
+        'name'                  => _x( 'Staff Categories', 'taxonomy general name', 'School-Theme' ),
+        'singular_name'         => _x( 'Staff Category', 'taxonomy singular name', 'School-Theme' ),
+        'search_items'          => __( 'Search Staff Categories', 'School-Theme' ),
+        'all_items'             => __( 'All Staff Category', 'School-Theme' ),
+        'parent_item'           => __( 'Parent Staff Category', 'School-Theme' ),
+        'parent_item_colon'     => __( 'Parent Staff Category:', 'School-Theme' ),
+        'edit_item'             => __( 'Edit Staff Category', 'School-Theme' ),
+        'view_item'             => __( 'View Staff Category', 'School-Theme' ),
+        'update_item'           => __( 'Update Staff Category', 'School-Theme' ),
+        'add_new_item'          => __( 'Add New Staff Category', 'School-Theme' ),
+        'new_item_name'         => __( 'New Staff Category Name', 'School-Theme' ),
+        'template_name'         => __( 'Staff Category Archives', 'School-Theme' ),
+        'menu_name'             => __( 'Staff Category', 'School-Theme' ),
+        'not_found'             => __( 'No staff categories found.', 'School-Theme' ),
+        'no_terms'              => __( 'No staff categories', 'School-Theme' ),
+        'items_list_navigation' => __( 'Staff Categories list navigation', 'School-Theme' ),
+        'items_list'            => __( 'Staff Categories list', 'School-Theme' ),
+        'item_link'             => __( 'Staff Category Link', 'School-Theme' ),
+        'item_link_description' => __( 'A link to a staff category.', 'School-Theme' ),
+    );
+    $args = array(
+        'hierarchical'      => true,
+        'labels'            => $labels,
+        'show_ui'           => true,
+        'show_in_menu'      => true,
+        'show_in_nav_menu'  => true,
+        'show_in_rest'      => true,
+        'show_admin_column' => true,
+        'query_var'         => true,
+        'rewrite'           => array( 'slug' => 'student-category' ),
+        //Restricting managing, editing, and deleting terms.
+        'capabilities' => array(
+            'manage_terms' => 'do_not_allow',   //PRevent adding/editing/deleting terms.
+            'edit_terms' => 'do_not_allow',
+            'delete_terms' => 'do_not_allow',
+            'assign_terms' => 'edit_posts',     //Allowing only to assign terms to posts.
+        ),
+        'map_meta_cap; => true',     //Enable the 'do_not_allow' capabilities work coreectly.
+    );
+    register_taxonomy( 'fwd-staff-category', array( 'fwd-staff' ), $args );
 }
 add_action( 'init', 'school_demo_register_taxonomies' );
 
