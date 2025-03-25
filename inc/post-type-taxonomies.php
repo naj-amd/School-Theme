@@ -205,7 +205,7 @@ function school_demo_register_taxonomies() {
         'show_in_rest'      => true,
         'show_admin_column' => true,
         'query_var'         => true,
-        'rewrite'           => array( 'slug' => 'student-category' ),
+        'rewrite'           => array( 'slug' => 'staff-category' ),
         //Restricting managing, editing, and deleting terms.
         'capabilities' => array(
             'manage_terms' => 'do_not_allow',   //PRevent adding/editing/deleting terms.
@@ -213,7 +213,7 @@ function school_demo_register_taxonomies() {
             'delete_terms' => 'do_not_allow',
             'assign_terms' => 'edit_posts',     //Allowing only to assign terms to posts.
         ),
-        'map_meta_cap; => true',     //Enable the 'do_not_allow' capabilities work coreectly.
+        'map_meta_cap' => true,     //Enable the 'do_not_allow' capabilities work coreectly.
     );
     register_taxonomy( 'fwd-staff-category', array( 'fwd-staff' ), $args );
 }
