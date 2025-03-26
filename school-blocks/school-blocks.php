@@ -6,14 +6,21 @@
  *
  * @see https://developer.wordpress.org/reference/functions/register_block_type/
  */
-function school_blocks_copyright_date_block_init() {
+function school_blocks_dynamic_block_init() {
 	register_block_type( __DIR__ . '/build/copyright-date' );
 	register_block_type( __DIR__ . '/build/staff-department', array(
 		'render_callback' => 'fwd_render_staff_department'
 	) );
-
+	//Register the Animation to scroll block
+	
 }
-add_action( 'init', 'school_blocks_copyright_date_block_init' );
+add_action( 'init', 'school_blocks_dynamic_block_init' );
+
+function school_blocks_static_block_init() {
+	register_block_type(__DIR__ . '/build/animation-to-scroll');
+	
+}
+add_action( 'init', 'school_blocks_static_block_init' );
 
 function fwd_render_staff_department( $attributes ) {
     ob_start();

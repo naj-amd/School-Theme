@@ -139,7 +139,7 @@ add_action( 'init', 'school_demo_register_custom_post_types' );
 //We can have the register_taxonomy inside the same function as the custom post type 
 // or in a separate function. For organization purposes, we will create a separate function.
 function school_demo_register_taxonomies() {
-    // Add Work Category taxonomy
+    // Add Student Category taxonomy
     $labels = array(
         'name'                  => _x( 'Student Categories', 'taxonomy general name', 'School-Theme' ),
         'singular_name'         => _x( 'Student Category', 'taxonomy singular name', 'School-Theme' ),
@@ -208,7 +208,7 @@ function school_demo_register_taxonomies() {
         'rewrite'           => array( 'slug' => 'staff-category' ),
         //Restricting managing, editing, and deleting terms.
         'capabilities' => array(
-            'manage_terms' => 'do_not_allow',   //PRevent adding/editing/deleting terms.
+            'manage_terms' => 'do_not_allow',   //Prevent adding/editing/deleting terms.
             'edit_terms' => 'do_not_allow',
             'delete_terms' => 'do_not_allow',
             'assign_terms' => 'edit_posts',     //Allowing only to assign terms to posts.

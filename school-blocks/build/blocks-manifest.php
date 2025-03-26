@@ -1,6 +1,32 @@
 <?php
 // This file is generated. Do not modify it manually.
 return array(
+	'animation-to-scroll' => array(
+		'$schema' => 'https://schemas.wp.org/trunk/block.json',
+		'apiVersion' => 3,
+		'name' => 'school-blocks/animation-to-scroll',
+		'version' => '0.1.0',
+		'title' => 'Animation To Scroll',
+		'category' => 'design',
+		'icon' => 'visibility',
+		'description' => 'Animation for scolling.',
+		'example' => array(
+			
+		),
+		'supports' => array(
+			'html' => false
+		),
+		'attributes' => array(
+			'animation' => array(
+				'type' => 'string',
+				'default' => 'fadeIn'
+			)
+		),
+		'textdomain' => 'animation-to-scroll',
+		'editorScript' => 'file:./index.js',
+		'editorStyle' => 'file:./index.css',
+		'style' => 'file:./style-index.css'
+	),
 	'copyright-date' => array(
 		'$schema' => 'https://schemas.wp.org/trunk/block.json',
 		'apiVersion' => 3,
