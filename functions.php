@@ -109,3 +109,6 @@ add_filter('enter_title_here', 'school_demo_change_staff_title_placeholder', 10,
 * Custom Post Types & Custom Taxonomies
 */
 require get_template_directory() . '/inc/post-type-taxonomies.php';
+
+// Load our custom blocks
+require get_theme_file_path('/school-blocks/school-blocks.php');

@@ -1,0 +1,44 @@
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+.wp-block-school-blocks-staff-department {
+	padding: 2px;
+}
+.staff-department{
+	display: flex;
+	flex-direction: column;
+	// grid-template-columns: 1fr 1fr;
+	grid-gap: 1rem;
+}
+.staff-member{
+	background-color: #003c71;
+	color:#ffffff;
+	padding: 1.2rem;
+}
+.staff-image{
+	//make images stay in the middle of the staff-image container and make them round, also change the width and height accordingly to stay in the container 
+	display: flex;
+	justify-content: center;
+}
+.staff-image img{
+	border-radius: 50%;
+	width: 100%;
+	height: auto;
+	// object-fit: cover;
+}
+.staff-content{
+	padding:0 1rem
+}
+.staff-description a{
+	color: #ffffff;
+}
+@media screen and (min-width: 600px){
+	.staff-department{
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+	}
+}

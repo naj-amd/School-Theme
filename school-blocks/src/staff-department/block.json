@@ -1,0 +1,17 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "school-blocks/staff-department",
+	"version": "0.1.0",
+	"title": "Staff Department",
+	"category": "text",
+	"icon": "admin-site-alt3",
+	"description": "Display the department of staff.",
+	"example": {},
+	"supports": {
+		"html": false
+	},
+	"textdomain": "staff-department",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css"
+}
