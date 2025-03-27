@@ -26,8 +26,8 @@ import { useBlockProps } from '@wordpress/block-editor';
 export default function Edit({ attributes, setAttributes }) {
 	return (
 		<>	
-			<InspectorControll>
-				<PannelBody title={__('Animation Setting','school-blocks')}>
+			<InspectorControls>
+				<PanelBody title={__('Animation Setting','school-blocks')}>
 					<SelectControl
 						label={__('Select Animation','school-blocks')}
 						value={attributes.animation}
@@ -41,8 +41,8 @@ export default function Edit({ attributes, setAttributes }) {
 						]}
 						onChange={(newAnimation) => setAttributes({ animation: newAnimation })}
 					/>
-				</PannelBody>
-			</InspectorControll>
+				</PanelBody>
+			</InspectorControls>
 
 			<div {...useBlockProps()} data-aos={attributes.animation}>
 				<InnerBlocks />

@@ -88,8 +88,9 @@ function dream_code_custom_image_sizes($size_names)
 add_filter('image_size_names_choose', 'dream_code_custom_image_sizes');
 
 //Changing the placeholder of title in student post type.
-function school_demo_change_student_title_placeholder($title, $post){
-    if($post->post_type =="fwd-student"){
+function school_demo_change_student_title_placeholder($title, $post)
+{
+    if ($post->post_type == "fwd-student") {
         return "Add student name";
     }
     return $title;
@@ -97,8 +98,9 @@ function school_demo_change_student_title_placeholder($title, $post){
 add_filter('enter_title_here', 'school_demo_change_student_title_placeholder', 10, 2);
 
 //Changing the placeholder of title in staff post type.
-function school_demo_change_staff_title_placeholder($title, $post){
-    if($post->post_type =="fwd-staff"){
+function school_demo_change_staff_title_placeholder($title, $post)
+{
+    if ($post->post_type == "fwd-staff") {
         return "Add staff name";
     }
     return $title;
@@ -106,19 +108,37 @@ function school_demo_change_staff_title_placeholder($title, $post){
 add_filter('enter_title_here', 'school_demo_change_staff_title_placeholder', 10, 2);
 
 //Adding Animation on Scroll (AOC) library to the theme.
-function school_demo_enqueue_aos(){
+function school_demo_enqueue_aos()
+{
     //Enqueue AOS CSS 
-    wp_enqueue_style('aos-css', 'https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css', array(), '2.3.4' );
+    wp_enqueue_style(
+        'aos-css',
+        'https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css',
+        array(),
+        '2.3.4'
+    );
     //Enqueue AOS JS
-    wp_enqueue_script( 'aos-js', 'https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js', array(), '2.3.4', true);
+    wp_enqueue_script(
+        'aos-js',
+        'https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js',
+        array(),
+        '2.3.4',
+        array('strategy' => 'defer')
+    );
     //Enqueue custom script to initialize AOS
-    wp_enqueue_script( 'fwd_aos_init', get_theme_file_uri('/assets/js/fwd_aos_init.js'), array('aos-js'), wp_get_theme()->get('Version'), true);
+    wp_enqueue_script(
+        'fwd_aos_init',
+        get_theme_file_uri('/assets/js/fwd_aos_init.js'),
+        array('aos-js'),
+        wp_get_theme()->get('Version'),
+        array('strategy' => 'defer')
+    );
 }
 add_action('wp_enqueue_scripts', 'school_demo_enqueue_aos');
 
 /**
-* Custom Post Types & Custom Taxonomies
-*/
+ * Custom Post Types & Custom Taxonomies
+ */
 require get_template_directory() . '/inc/post-type-taxonomies.php';
 
 // Load our custom blocks

@@ -12,7 +12,6 @@ function school_blocks_dynamic_block_init() {
 		'render_callback' => 'fwd_render_staff_department'
 	) );
 	//Register the Animation to scroll block
-	
 }
 add_action( 'init', 'school_blocks_dynamic_block_init' );
 
