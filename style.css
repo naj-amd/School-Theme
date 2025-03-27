@@ -14,7 +14,8 @@ Text Domain: school-site
 Update URI: false
 */
 
-.site-wrapper {
+.site-wrapper,
+footer {
     margin-block-start: 0;
 }
 
@@ -25,4 +26,8 @@ Update URI: false
 
 .gform_title {
     font-size: 1.75rem;
+}
+
+.wp-block-pullquote p {
+	font-size: var(--wp--preset--font-size--large);
 }
