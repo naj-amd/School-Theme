@@ -8,7 +8,7 @@ return array(
 		'version' => '0.1.0',
 		'title' => 'Animation To Scroll',
 		'category' => 'design',
-		'icon' => 'visibility',
+		'icon' => 'star-half',
 		'description' => 'Animation for scolling.',
 		'example' => array(
 			
@@ -54,7 +54,7 @@ return array(
 		'version' => '0.1.0',
 		'title' => 'Staff Department',
 		'category' => 'text',
-		'icon' => 'admin-site-alt3',
+		'icon' => 'building',
 		'description' => 'Display the department of staff.',
 		'example' => array(
 			
