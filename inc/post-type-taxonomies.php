@@ -68,7 +68,7 @@ function school_demo_register_custom_post_types() {
     );
     register_post_type( 'fwd-student', $args );
 
-    //registering stuff custom post type
+    //registering staff custom post type
     $labels = array(
         'name'                     => _x( 'Staff', 'post type general name', 'School-Theme' ),
         'singular_name'            => _x( 'Staff', 'post type singular name', 'School-Theme' ),
@@ -220,9 +220,9 @@ function school_demo_register_taxonomies() {
 add_action( 'init', 'school_demo_register_taxonomies' );
 
 // Adding flush_rewrite_rules() function to make sure that the custom post type is registered properly withoutneed to fluch amnualy.
-function mindset_rewrite_flush() {
+function school_rewrite_flush() {
     school_demo_register_custom_post_types();
     school_demo_register_taxonomies();
     flush_rewrite_rules();
 }
-add_action( 'after_switch_theme', 'mindset_rewrite_flush' );
+add_action( 'after_switch_theme', 'school_rewrite_flush' );
