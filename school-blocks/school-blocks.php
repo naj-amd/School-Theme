@@ -34,22 +34,7 @@ function fwd_render_staff_department( $attributes ) {
 			'orderby' => 'title',
 			'order' => 'ASC'
 		);
-			
-		// $nav_query = new WP_Query( $nav_args );
-		// if ( $nav_query -> have_posts() ) {
-		// 	echo '<nav class="staff-nav">';
-
-		// 	while( $nav_query -> have_posts() ) {
-		// 		$nav_query -> the_post();
-				
-		// 		echo '<a href="#post-'.esc_attr(get_the_ID()).'">' . esc_html(get_the_title()) . '</a>'; // Title in h2
-				
-			
-		// 	}
-		// 	wp_reset_postdata(); 
-		// 	echo '</nav>';
-		// }
-
+		
 		$terms = get_terms(
 			array(
 				'taxonomy' => 'fwd-staff-category',
